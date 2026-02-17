@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MarketMind - AI Platform</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f4f6f9;
+        }
+        header {
+            background: #2a5298;
+            color: white;
+            padding: 30px;
+        }
+        form {
+            margin-top: 30px;
+        }
+        textarea, select {
+            width: 60%;
+            padding: 10px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #1e3c72;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background: white;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0px 3px 8px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>MarketMind</h1>
+    <p>Generative AI–Powered Sales & Marketing Intelligence Platform</p>
+</header>
+
+<form action="/generate" method="post">
+    <select name="task_type">
+        <option value="Campaign">Campaign Generation</option>
+        <option value="Sales Pitch">Sales Pitch Creation</option>
+        <option value="Lead Analysis">Lead Scoring</option>
+    </select>
+    <br>
+    <textarea name="user_input" rows="4" placeholder="Enter product details..." required></textarea>
+    <br>
+    <button type="submit">Generate</button>
+</form>
+
+{% if result %}
+<div class="result">
+    <h3>AI Output:</h3>
+    <p>{{ result }}</p>
+</div>
+{% endif %}
+
+</body>
+</html>
